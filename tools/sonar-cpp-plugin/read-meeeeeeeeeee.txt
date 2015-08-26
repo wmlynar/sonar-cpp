@@ -1,0 +1,15 @@
+base code is taken from
+
+URL: http://svn.codehaus.org/sonar-plugins/trunk/cxx
+Repository Root: http://svn.codehaus.org/sonar-plugins
+Repository UUID: d25a0af3-c461-0410-a42d-853a01480fe4
+Revision: 3496
+Node Kind: directory
+Schedule: normal
+Last Changed Author: fbonin
+Last Changed Rev: 3228
+Last Changed Date: 2011-02-03 11:45:38 +0100 (czw, 03 lut 2011)
+
+integrate further from that point
+
+

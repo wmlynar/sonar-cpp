@@ -1,0 +1,43 @@
+<profile>
+	<name>c++</name>
+	<language>c++</language>
+	<rules>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>ComplexityOfMethod</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>CriticalComplexityOfMethod</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>LinesInMethodViolation</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>CriticalLinesInMethodViolation</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>UndocumentedAPIViolation</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>MaxNestingViolation</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>CriticalMaxNestingViolation</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>MaxMethodsViolation</key>
+		</rule>
+		<rule>
+			<repositoryKey>c++</repositoryKey>
+			<key>CriticalMaxMethodsViolation</key>
+		</rule>
+	</rules>
+</profile>
+		

@@ -1,0 +1,97 @@
+<%
+isoqa_flcom=measure('cccc_flcom')
+isoqa_mcc=measure('isoqa_mcc')
+isoqa_flc=measure('cccc_flc')
+averageLengthOfMethod = measure('cccc_average_length_of_method')
+maxComplexityOfMethod = measure('cccc_max_complexity_of_method')
+maxComplexityOfClass = measure('cccc_max_complexity_of_class')
+maxNestingLevel = measure('cccc_max_nesting_level')
+averageNestingLevel = measure('cccc_average_nesting_level')
+maxLinesOfCodeInFunction = measure('cccc_max_lines_of_code_in_function')
+averageMethodsInClass = measure('cccc_average_methods_in_class')
+maxMethodsInClass = measure('cccc_max_methods_in_class')
+ccccIF = measure('cccc_IF4')
+averageIF = measure('cccc_average_IF4')
+maxIF = measure('cccc_max_IF4')
+averageFanIn = measure('cccc_average_fan_in')
+maxFanIn = measure('cccc_max_fan_in')
+averageFanOut = measure('cccc_average_fan_out')
+maxFanOut = measure('cccc_max_fan_out')
+averageTop5MethodsComplexity = measure('cccc_average_top5_methods_complexity')
+averageTop5MaxNesting = measure('cccc_average_top5_max_nesting')
+averageTop5MethodsLength = measure('cccc_average_top5_methods_length')
+
+%>
+<table class="width100">
+  <tbody>
+    <tr>
+      <td valign="top" width="50%">
+      
+<div class="dashbox">
+        <h3>Cccc</h3>
+        <p><span"><%= format_measure(maxComplexityOfMethod, :suffix => ' Max complexity of method' , :url => url_for_drilldown('cccc_max_complexity_of_method')) %></span></p>
+        <p><span"><%= format_measure(maxComplexityOfClass, :suffix => ' Max complexity of class' , :url => url_for_drilldown('cccc_max_complexity_of_class')) %></span></p>
+        <p><span"><%= format_measure(maxNestingLevel, :suffix => ' Max nesting level' , :url => url_for_drilldown('cccc_max_nesting_level')) %></span></p>
+        <p><span"><%= format_measure(maxLinesOfCodeInFunction, :suffix => ' Max length of method', :url => url_for_drilldown('cccc_max_lines_of_code_in_function')) %></span></p>
+        <p><span"><%= format_measure(maxMethodsInClass, :suffix => ' Max methods in class', :url => url_for_drilldown('cccc_max_methods_in_class')) %></span></p>
+        <p><span"><%= format_measure(averageNestingLevel, :suffix => ' Average nesting level', :url => url_for_drilldown('cccc_average_nesting_level')) %></span></p>
+        <p><span"><%= format_measure(averageLengthOfMethod, :suffix => ' Average length of method', :url => url_for_drilldown('cccc_average_length_of_method')) %></span></p>
+        <p><span"><%= format_measure(averageMethodsInClass, :suffix => ' Methods / class', :url => url_for_drilldown('cccc_average_methods_in_class')) %></span></p>
+        <h3>Structural Metrics</h3>
+        <p><span"><%= format_measure(ccccIF, :suffix => ' IF4', :url => url_for_drilldown('cccc_IF4')) %></span></p>
+        <p><span"><%= format_measure(maxIF, :suffix => ' Max IF4', :url => url_for_drilldown('cccc_max_IF4')) %></span></p>
+        <p><span"><%= format_measure(maxFanIn, :suffix => ' Max fan in', :url => url_for_drilldown('cccc_max_fan_in')) %></span></p>
+        <p><span"><%= format_measure(maxFanOut, :suffix => ' Max fan out', :url => url_for_drilldown('cccc_max_fan_out')) %></span></p>
+        <p><span"><%= format_measure(averageIF, :suffix => ' Average IF4', :url => url_for_drilldown('cccc_average_IF4')) %></span></p>
+        <p><span"><%= format_measure(averageFanIn, :suffix => ' Average fan in', :url => url_for_drilldown('cccc_average_fan_in')) %></span></p>
+        <p><span"><%= format_measure(averageFanOut, :suffix => ' Average fan out', :url => url_for_drilldown('cccc_average_fan_out')) %></span></p>
+        <h3>Average Top 5 percent Metrics</h3>
+        <p><span"><%= format_measure(averageTop5MethodsComplexity, :suffix => ' Average of top 5 percent complexity' , :url => url_for_drilldown('cccc_average_top5_methods_complexity')) %></span></p>
+        <p><span"><%= format_measure(averageTop5MaxNesting, :suffix => ' Average of top 5 percent max nesting' , :url => url_for_drilldown('cccc_average_top5_max_nesting')) %></span></p>
+        <p><span"><%= format_measure(averageTop5MethodsLength, :suffix => ' Average of top 5 percent of methods length' , :url => url_for_drilldown('cccc_average_top5_methods_length')) %></span></p>
+</div>
+      </td>
+      <td valign="top" width="50%" nowrap>
+
+<%
+ 
+ function_logdistribution=measure('function_complexity_distribution')
+%>
+<div class="dashbox" id="cmp_logcharts">
+
+ <style>
+   #cmp_logcharts form {
+  font-size: 93%;padding-left: 30px;
+   }
+#cmp_logcharts form label {
+  padding-right: 5px;
+   }
+ </style>
+
+
+   <% dist_measure = measure(function_logdistribution.metric.key)
+   if dist_measure && !dist_measure.data.blank?
+%>
+<div id="logchart_<%=function_logdistribution.metric.key -%>" class="logchart" style="display: "block" ">
+<%
+   query="ck=logdistbar&c=777777&v=" + u(dist_measure.data)
+   small_size_query=query + '&w=220&h=100&fs=8&bgc=ffffff'
+   big_size_query=query + '&w=300&h=150&fs=12&bgc=CAE3F2'
+%><%= chart(small_size_query, :id => 'chart_img_' + function_logdistribution.metric.key, :alt => function_logdistribution.metric.description) -%>
+  <script type='text/javascript'>
+  //<![CDATA[
+  new Tip('chart_img_<%=function_logdistribution.metric.key-%>', '<div style="width:300px;"><b><%= function_logdistribution.metric.description -%></b><br>'+
+    '<%= chart(big_size_query, :id => 'chart_img_' + function_logdistribution.metric.key, :alt => function_logdistribution.metric.description) -%></div>');
+  //]]>
+  </script>
+
+</div>
+
+
+	</div>
+<% end %>
+ </td>
+  </tr>
+  </tbody>
+ </table>
+<div class="clear"></div>

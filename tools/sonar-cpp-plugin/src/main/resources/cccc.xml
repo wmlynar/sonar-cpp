@@ -1,0 +1,73 @@
+<rules>
+	<rule>
+		<key>ComplexityOfMethod</key>
+		<priority>MAJOR</priority>
+		<name>ComplexityOfMethod</name>
+		<configKey>ComplexityOfMethod</configKey>
+		<description>Complexity of method > threshold</description>
+	</rule>
+	<rule>
+		<key>CriticalComplexityOfMethod</key>
+		<priority>CRITICAL</priority>
+		<name>CriticalComplexityOfMethod</name>
+		<configKey>CriticalComplexityOfMethod</configKey>
+		<description>Complexity of method > threshold</description>
+	</rule>
+	<rule>
+		<key>LinesInMethodViolation</key>
+		<priority>MAJOR</priority>
+		<name>LinesInMethodViolation</name>
+		<configKey>LinesInMethodViolation</configKey>
+		<description>Number of lines in method > threshold</description>
+	</rule>
+	<rule>
+		<key>CriticalLinesInMethodViolation</key>
+		<priority>CRITICAL</priority>
+		<name>CriticalLinesInMethodViolation</name>
+		<configKey>CriticalLinesInMethodViolation</configKey>
+		<description>Number of lines in method > threshold</description>
+	</rule>
+	<rule>
+		<key>UndocumentedAPIViolation</key>
+		<priority>MINOR</priority>
+		<name>UndocumentedAPIViolation</name>
+		<configKey>UndocumentedAPIViolation</configKey>
+		<description>Undocumented public method or class</description>
+	</rule>
+	<rule>
+		<key>MaxNestingViolation</key>
+		<priority>MAJOR</priority>
+		<name>MaxNestingViolation</name>
+		<configKey>MaxNestingViolation</configKey>
+		<description>Max Nesting level > threshold</description>
+		<param key="maxParam" type="i">
+			<key>maxParam</key>
+      		<description>the maximum allowed number of max nesting level.</description>
+      		<defaultValue>3</defaultValue>
+    	</param>
+	</rule>
+	<rule>
+		<key>CriticalMaxNestingViolation</key>
+		<priority>CRITICAL</priority>
+		<name>CriticalMaxNestingViolation</name>
+		<configKey>CriticalMaxNestingViolation</configKey>
+		<description>Max Nesting level > threshold</description>
+		<param key="max" type="i">
+      		<description>the maximum allowed number of max nesting level.</description>
+    	</param>
+	</rule>
+	<rule>
+		<key>MaxMethodsViolation</key>
+		<priority>MAJOR</priority>
+		<name>MaxMethodsViolation</name>
+		<configKey>MaxMethodsViolation</configKey>
+		<description>Number of methods in class > threshold</description>
+	</rule>
+	<rule>
+		<key>CriticalMaxMethodsViolation</key>
+		<priority>CRITICAL</priority>
+		<name>CriticalMaxMethodsViolation</name>
+		<configKey>CriticalMaxMethodsViolation</configKey>
+		<description>Number of methods in class > threshold</description>
+	</rule>
+</rules>
