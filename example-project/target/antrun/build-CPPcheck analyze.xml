@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="CPPcheck analyze"  >
+<target unless="maven.test.skip" name="CPPcheck analyze">
+  <echo message="Starting CPPCheck"/>
+  <exec error="/home/tomtom/tmp/sonar-cpp/example-project/cppcheck-result.xml" executable="cppcheck" failonerror="true">
+    <arg value="--xml"/>
+    <arg value="-j 4"/>
+    <arg value="--error-exitcode=1"/>
+    <arg value="-f"/>
+    <arg value="-v"/>
+    <arg value="-iCMakeFiles"/>
+    <arg value="-itarget"/>
+    <arg value="--inline-suppr"/>
+    <arg value="--enable=all"/>
+    <arg value="--file-list=cppcheck.list"/>
+    <arg value="--exitcode-suppressions=suppressions.list"/>
+  </exec>
+</target>
+</project>

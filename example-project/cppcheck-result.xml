@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+<error file="src/example.hpp" line="13" id="functionConst" severity="style" msg="The member function 'Example::bbbb' can be made a const function. Making this function const function should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and task of the function first - is it a function that must not change object internal state?"/>
+</results>
