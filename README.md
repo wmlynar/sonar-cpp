@@ -20,6 +20,9 @@ cd tools/sonar-cpp-plugin
 mvn install
 cp target/tomtom-sonar-cxx-plugin-0.0.4-SNAPSHOT.jar ~/sonar-2.6/extensions/plugins
 
+Install cppcheck
+sudo apt-get install cppcheck
+
 Restart sonar
 ~/sonar-2.6/bin/linux-x86-64/sonar.sh restart
 
