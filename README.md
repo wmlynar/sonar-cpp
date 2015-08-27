@@ -39,3 +39,14 @@ Analyze project
 cd example-project
 mvn sonar:sonar
 ```
+
+=== OTHER STUFF ===
+
+please see https://github.com/wmlynar/sonar-cpp/blob/master/tools/sonar-cpp-plugin/Readme.txt
+for examples how to use
+* xunit
+* gcov / gcovr
+* cppncss
+* vera++
+* valgrind
+
